@@ -35,7 +35,7 @@ jello release -ompDd dist
 - CSS Sprite Supported
 - Easy to integrate multiple frameworks
 
-# Architect
+# Architecture
  
  - src - where to put soucecode
 	 - page - where to put the business logic
