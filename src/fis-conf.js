@@ -15,14 +15,18 @@ fis.config.merge({
         parser: {
             less: 'less',
             coffee: 'coffee-script',
-            jade: 'jade'
+            jade: 'jade',
+            tpl: 'rabbitpre-tpl'
         },
         postprocessor: {
             js: "jswrapper, require-async",
             coffee: "jswrapper, require-async",
             html: "require-async",
             less: 'pleeease',
-            css: 'pleeease'
+            css: 'pleeease',
+            tpl: {
+                js: 'jswrapper, require-async'
+            }
         },
         prepackager: ['csswrapper', 'ousiri-async-build'],
         spriter: 'csssprites'
@@ -37,7 +41,7 @@ fis.config.merge({
             'ousiri-async-build': {
                 libs: [],
                 ignores: [],
-                cssInline: false,
+                cssInline: true,
                 useInlineMap: true,
                 cssPack: true
             }
@@ -54,7 +58,8 @@ fis.config.merge({
         ext: {
             less: 'css',
             coffee: 'js',
-            jade: 'html'
+            jade: 'html',
+            tpl: 'tpl.js'
         },
         domain: {
             "**.js": projConf.cdnRoot.js + '/' + projConf.subPath,
@@ -66,7 +71,9 @@ fis.config.merge({
             "**.jpg": projConf.cdnRoot.img + '/' + projConf.subPath,
             "**.html": projConf.htdocs + '/' + projConf.subPath,
             "**.mp3": projConf.cdnRoot.img + '/' + projConf.subPath,
-            "**.ico": projConf.cdnRoot.img + '/' + projConf.subPath
+            "**.ico": projConf.cdnRoot.img + '/' + projConf.subPath,
+            "**.tpl": projConf.cdnRoot.js + '/' + projConf.subPath,
+            "**.tpl.js": projConf.cdnRoot.js + '/' + projConf.subPath
         },
         path: [
             {
@@ -153,6 +160,20 @@ fis.config.merge({
                 extras: {
                     isPage: true
                 }
+            },
+            {
+                reg: /^\/page\/(.*)\.(tpl)$/i,
+                isMod: true,
+                useDomain: true,
+                isJsLike: true,
+                id: 'page/$1.$2'
+            },
+            {
+                reg: /^\/widget\/(.*)\.(tpl)$/i,
+                isMod: true,
+                useDomain: true,
+                isJsLike: true,
+                id: '$1.$2'
             }
         ]
     },

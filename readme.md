@@ -3,7 +3,7 @@
 
 ```sh
 npm install -g jello
-npm install -g fis-parser-less fis-parser-coffee-script fis-parser-jade fis-postprocessor-pleeease fis-prepackager-csswrapper fis-prepackager-ousiri-async-build
+npm install -g fis-parser-less fis-parser-coffee-script fis-parser-jade fis-postprocessor-pleeease fis-prepackager-csswrapper fis-prepackager-ousiri-async-build fis-parser-rabbitpre-tpl
 ```
 
 # Run
@@ -28,6 +28,7 @@ jello release -ompDd dist
 - [Less](http://lesscss.org/) as CSS preprocessor, extend the css syntax
 - [Pleeease](http://pleeease.io/) as CSS postprocessor, simplify the css file
 - [CoffeeScript](http://coffeescript.org/) as Javascript compiler
+- [Micro-Tpl](https://github.com/miniflycn/micro-tpl) as Front-End Template Engine.
 - Full modularization
   - Writing JS in Node.js way
   - Autoload the CSS file when the JS file is loaded if they have the same name
